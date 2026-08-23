@@ -199,7 +199,7 @@ function getInitials(name) {
 }
 
 function formatSkill(skill) {
-  return skill.replace(/\(([^)]+)\)/g, 'span style="font-size:0.7em;opacity:0.7;">($1)<span>')
+  return skill.replace(/\(([^)]+)\)/g, '<span style="font-size:0.7em;opacity:0.7;">($1)</span>')
 }
 
 function renderMembers(members) {
@@ -237,6 +237,7 @@ function renderMembers(members) {
       '<span class="member-role-badge">' + m.role + '</span></div>' +
       '<div class="member-info">' +
         '<h3 class="member-name">' + m.name + '</h3>' +
+        (m.fullName ? '<p class="member-fullname">' + m.fullName + '</p>' : '') +
         '<p class="member-role">' + m.role + '</p>' +
         '<p class="member-bio">' + m.bio + '</p>' +
         '<div class="member-skills">' + skillsHtml + '</div>' +
@@ -295,6 +296,7 @@ function openModal(id, members) {
     '<div class="modal-avatar">' + avatarHtml + '</div></div>' +
     '<div class="modal-info">' +
       '<h2 class="modal-name">' + m.name + '</h2>' +
+      (m.fullName ? '<p class="modal-fullname">' + m.fullName + '</p>' : '') +
       '<p class="modal-role">' + m.role + '</p>' +
       '<p class="modal-bio">' + m.bio + '</p>' +
       '<div class="modal-section"><h4>Skills</h4><div class="modal-skills">' + skillsHtml + '</div></div>' +

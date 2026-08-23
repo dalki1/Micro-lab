@@ -285,6 +285,7 @@ function openMemberDrawer(id) {
     var m = allMembers.find(function (x) { return x.id === id; });
     if (m) {
       document.getElementById('mName').value = m.name || '';
+      document.getElementById('mFullName').value = m.fullName || '';
       document.getElementById('mRole').value = m.role || '';
       document.getElementById('mBio').value = m.bio || '';
       document.getElementById('mSkills').value = (m.skills || []).join(', ');
@@ -329,6 +330,7 @@ document.getElementById('memberForm').addEventListener('submit', function (e) {
 
   var member = {
     name: document.getElementById('mName').value.trim(),
+    fullName: document.getElementById('mFullName').value.trim(),
     role: document.getElementById('mRole').value.trim(),
     bio: document.getElementById('mBio').value.trim(),
     image: document.getElementById('mImage').value.trim(),
